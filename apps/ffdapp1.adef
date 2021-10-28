@@ -1,0 +1,41 @@
+
+// ffdapp1.adef
+//
+// This is an application definition file that specifies the internal content of application and
+// external interfaces.
+//
+// For more details on the application definition (.adef) file format see:
+// https://docs.legato.io/latest/defFilesAdef.html
+
+
+// Specify the bundled components for your application here. This section needs to contain a list
+// of system paths to your component directory.
+components:
+{
+}
+
+// Add the list of executables to be constructed and moved to the /bin directory of the app. The
+// executable content is a list of the components inside the executable.
+//
+// Example binding format:
+// clientExe.clientComponent.clientInterface -> serverExe.serverComponent.serverInterface
+executables:
+{
+    ffdapp1ComponentExe = ( ffdapp1Component )
+}
+
+// The processes section specifies processes to run when the app is started including environment
+// variables, command-line arguments, limits, and fault handling actions.
+processes:
+{
+    run:
+    {
+        ( ffdapp1ComponentExe )
+    }
+}
+
+// Bindings that allow client side API interfaces to be bound to servers found within other
+// applications in the system.
+bindings:
+{
+}

@@ -1,0 +1,14 @@
+{
+    "leafMinVersion": "2.4.0",
+    "profiles": {
+        "ffdtest1": {
+            "packages": {
+                "swi-wp76": "4.0.3",
+                "swi-vscode-support": "200624"
+            }
+        }
+    },
+    "env": {
+        "LEGATO_DEF_FILE": "${LEAF_WORKSPACE}/ffdsystem1.sdef"
+    }
+}

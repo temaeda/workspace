@@ -1,0 +1,37 @@
+//------------------------------------------------------------------------------
+// AT Proxy Interface component.
+//
+// Copyright (C) Sierra Wireless Inc.
+//------------------------------------------------------------------------------
+
+provides:
+{
+    api:
+    {
+        le_atServer.api [async]
+        le_port.api
+    }
+}
+
+sources:
+{
+    atProxy.c
+    atProxyCmdHandler.c
+    atProxyStub.c
+    atProxyPortService.c
+}
+
+pools:
+{
+    /* Clients may call le_atProxy APIs from inside the CommandHandler which is
+     * registered with le_atProxy
+     */
+    le_atServer.le_atServer_Messages = 2
+}
+
+cflags:
+{
+    -I${SWI_ROOT}/include
+    -I${LEGATO_ROOT}/components/atServices/atProxy
+    -I${LEGATO_ROOT}/components/atServices/atProxy/platformAdaptor/inc
+}

@@ -1,0 +1,80 @@
+
+// ffdsystem1.sdef
+//
+// This is a system definition file which defines and interconnects a system of one or more 
+// applications with the target's run-time environment.
+//
+// For more details on the system definition (.sdef) file format see:
+// https://docs.legato.io/latest/defFilesSdef.html
+
+
+// Directs mksys to build the default Legato system and all the default platform services along
+// with your apps and customizations.
+#include $LEGATO_ROOT/default.sdef
+
+
+
+// Declare custom variables available at build time for all of your project's apps, components and
+// modules.
+//
+// Variables are defined as <name> = <value>.  Values can come from previously defined variables or
+// from environment variables.
+// These variables are available to use throughout the definition file. buildVars section is 
+// evaluated before processing any other sections.
+buildVars:
+{
+    // Define a base directory for your project.
+    MY_SYSTEM_DIR = $CURDIR
+}
+
+// Interfaces are searched for in the following directories. Each directory/sub-directory needs to
+// be identified here for the system to find and use .api files.
+interfaceSearch:
+{
+    // Your project's search paths.
+    ${MY_SYSTEM_DIR}/interfaces
+
+    // Legato API search paths.
+    ${LEGATO_ROOT}/interfaces
+    ${LEGATO_ROOT}/interfaces/airVantage
+    ${LEGATO_ROOT}/interfaces/atServices
+    ${LEGATO_ROOT}/interfaces/logDaemon
+    ${LEGATO_ROOT}/interfaces/modemServices
+    ${LEGATO_ROOT}/interfaces/portService
+    ${LEGATO_ROOT}/interfaces/positioning
+    ${LEGATO_ROOT}/interfaces/secureStorage
+    ${LEGATO_ROOT}/interfaces/wifi
+}
+
+// Apps are searched for in the following directories. Each directory/sub-directory needs to be
+// identified here for the system to find and use the .adef files.
+appSearch:
+{
+    ${MY_SYSTEM_DIR}/apps
+}
+
+// Directories where components are searched.
+componentSearch:
+{
+    ${MY_SYSTEM_DIR}/components
+}
+
+// Kernel Modules are searched for in the following directories. Each directory/sub-directory
+// needs to be identified here for the system to find and use the .mdef files.
+moduleSearch:
+{
+    ${MY_SYSTEM_DIR}/modules
+}
+
+// Add your project/system specific apps here. You just need to add the name as long as the
+// directory path is specified in the search path in the appSearch: section.
+apps:
+{
+    ffdapp1
+}
+
+// Add your project/system specific kernel modules here. You just need to add the name as long as
+// the directory path is specified in the search path in the moduleSearch: section.
+kernelModules:
+{
+}

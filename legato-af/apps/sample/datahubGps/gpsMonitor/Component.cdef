@@ -1,0 +1,13 @@
+requires:
+{
+    api:
+    {
+        io.api
+        admin.api
+    }
+}
+
+sources:
+{
+    gpsMonitor.c
+}

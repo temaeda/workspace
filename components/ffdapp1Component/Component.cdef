@@ -1,0 +1,44 @@
+
+// ffdapp1Component
+//
+// This is component definition file that specifies the internal content and external interfaces
+// of reusable software components.
+//
+// For more details on the component definition (.cdef) file format see:
+// https://docs.legato.io/latest/defFilesCdef.html
+
+
+// Source code files.
+sources:
+{
+    ffdapp1Component.c
+}
+
+// Bind resources from the target module into your application.
+requires:
+{
+    // IPC APIs used by this component.
+    api:
+    {
+    }
+    
+    // File paths local to your target module.
+    file:
+    {
+    }
+    
+    // Directories on your target module to make accessible to the app.
+    dir:
+    {
+    }
+    
+    // Linux filesystem device paths.
+    device:
+    {
+    }
+    
+    // Shared libraries pre-installed on the module.
+    lib:
+    {
+    }
+}
